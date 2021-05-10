@@ -2,8 +2,8 @@ class Api::V1::FavoritesController < ApplicationController
   before_action :user
   
   def create
-    
-    render json: user.id
+    user.update(favorites: user.favorites + params[:favorites])
+    render json: user.favorites, status: :created
   end
 
   def update
