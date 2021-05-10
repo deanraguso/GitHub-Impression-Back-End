@@ -14,6 +14,8 @@ class Api::V1::FavoritesController < ApplicationController
   end
 
   def destroy
+    user.update(favorites: [])
+    head :ok
   end
 
   def show
