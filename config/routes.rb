@@ -2,9 +2,7 @@ Rails.application.routes.draw do
   namespace :api do
     namespace :v1 do
 
-      scope ":id" do
-        post 'favorites', to: "favorites#create"
-      end
+      post 'favorites/:id', to: "favorites#create", as: 'favorite'
 
       resources :favorites, except: [:create, :index]
 
