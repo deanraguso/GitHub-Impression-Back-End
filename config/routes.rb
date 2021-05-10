@@ -1,3 +1,8 @@
 Rails.application.routes.draw do
-  devise_for :users, path: 'api/v1', only: [:passwords, :registration]
+  namespace :api do
+    namespace :v1 do
+      post "authenticate", to: "authentication#create"
+    end
+  end
+  devise_for :users, path: 'api/v1'
 end
