@@ -1,5 +1,6 @@
 class Api::V1::FavoritesController < ApplicationController
   def create
+
   end
 
   def update
@@ -9,8 +10,7 @@ class Api::V1::FavoritesController < ApplicationController
   end
 
   def show
-  end
-
-  def index
+    user = User.find_by(id: params.require(:id))
+    render json: user.favorites, status: :ok
   end
 end

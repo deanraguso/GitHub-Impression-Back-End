@@ -1,5 +1,5 @@
 class AddFavouritesToUsers < ActiveRecord::Migration[6.1]
   def change
-    add_column :users, :favourites, :string, array: true
+    add_column :users, :favorites, :string, array: true
   end
 end
