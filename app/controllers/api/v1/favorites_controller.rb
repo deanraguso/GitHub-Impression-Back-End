@@ -1,6 +1,9 @@
 class Api::V1::FavoritesController < ApplicationController
+  before_action :user
+  
   def create
     
+    render json: user.id
   end
 
   def update
@@ -10,7 +13,12 @@ class Api::V1::FavoritesController < ApplicationController
   end
 
   def show
-    user = User.find_by(id: params.require(:id))
     render json: user.favorites, status: :ok
+  end
+
+  private 
+
+  def user
+    user = User.find_by(id: params.require(:id))
   end
 end
